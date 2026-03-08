@@ -85,6 +85,10 @@ print("w0 =", round(b_w0, 6))
 print("w1 =", round(b_w1, 6))
 print("Iterations:", b_iter)
 print("Equation: y =", round(b_w0, 6), "+", round(b_w1, 6), "* x")
+print("Predictions:")
+for x_val in [6, -120, 120]:
+    y_pred = b_w0 + b_w1 * x_val
+    print(f"  x = {x_val}: y = {round(y_pred, 6)}")
 
 print()
 
@@ -95,3 +99,7 @@ print("w0 =", round(s_w0, 6))
 print("w1 =", round(s_w1, 6))
 print("Iterations:", s_iter)
 print("Equation: y =", round(s_w0, 6), "+", round(s_w1, 6), "* x")
+print("Predictions:")
+for x_val in [6, -120, 120]:
+    y_pred = s_w0 + s_w1 * x_val
+    print(f"  x = {x_val}: y = {round(y_pred, 6)}")
