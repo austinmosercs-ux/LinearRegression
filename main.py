@@ -1,14 +1,13 @@
 # File: main.py
 # Author: Austin Moser
 # Date: 2026-03-08
-# Description: HW4 - implements batch gradient descent and stochastic gradient descent
-#              to find the best fit line for the given dataset
+# Description: HW4
 
 # x and y values from the hw
 X = [12, 2, 4, 6, 7, 8, 10, 9]
 Y = [25, 5, 7, 14, 14, 17, 19, 20]
 
-# initial weights and parameters given in the assignment
+# initial weights and parameters given
 w0 = 0.25
 w1 = 0.25
 learning_rate = 0.001
@@ -29,7 +28,8 @@ def batch_gradient_descent(X, Y, w0, w1):
             error = (w0 + w1 * X[j]) - Y[j]
             grad_w0 += error
             grad_w1 += error * X[j]
-        # multiply by 2/n to get the actual gradient of MSE
+
+        # multiply by 2/n to get the actual gradient
         grad_w0 = (2 / n) * grad_w0
         grad_w1 = (2 / n) * grad_w1
 
@@ -51,16 +51,17 @@ def batch_gradient_descent(X, Y, w0, w1):
     return w0, w1, iterations
 
 
-# stochastic gradient descent - updates weights one sample at a time
+# stochastic gradient descent - updates weights after every single point
 def stochastic_gradient_descent(X, Y, w0, w1):
     n = len(X)
     iterations = 0
 
     for _ in range(max_iter):
+        # save weights from start of this pass to check convergence later
         prev_w0 = w0
         prev_w1 = w1
 
-        # go through each data point and update weights
+        # loop through each point and update weights immediately
         for j in range(n):
             error = (w0 + w1 * X[j]) - Y[j]
             grad_w0 = 2 * error
@@ -70,14 +71,14 @@ def stochastic_gradient_descent(X, Y, w0, w1):
 
         iterations += 1
 
-        # check if converged after going through all points
+        # stop once weights converge after a full pass through the data
         if abs(w0 - prev_w0) < tolerance and abs(w1 - prev_w1) < tolerance:
             break
 
     return w0, w1, iterations
 
 
-# run batch gradient descent
+# run batch gradient descent and print results
 print("Batch Gradient Descent:")
 b_w0, b_w1, b_iter = batch_gradient_descent(X, Y, w0, w1)
 print("w0 =", round(b_w0, 6))
@@ -87,7 +88,7 @@ print("Equation: y =", round(b_w0, 6), "+", round(b_w1, 6), "* x")
 
 print()
 
-# run stochastic gradient descent
+# run stochastic gradient descent and print results
 print("Stochastic Gradient Descent:")
 s_w0, s_w1, s_iter = stochastic_gradient_descent(X, Y, w0, w1)
 print("w0 =", round(s_w0, 6))
