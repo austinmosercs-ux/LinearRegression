@@ -3,7 +3,7 @@ Linear Regression Report
 Batch Gradient Descent
 Equation: y = 0.452381 + 2.023809x
 Iterations: 33464
-Predictions:
+Values of y:
   x = 6       y = 12.595238
   x = -120    y = -242.404757
   x = 120     y = 243.309519
@@ -11,7 +11,7 @@ Predictions:
 Stochastic Gradient Descent
 Equation: y = 0.423722 + 2.028947x
 Iterations: 5568
-Predictions:
+Values of y:
   x = 6       y = 12.597402
   x = -120    y = -243.049892
   x = 120     y = 243.897335
