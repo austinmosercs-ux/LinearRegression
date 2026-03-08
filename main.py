@@ -11,7 +11,7 @@ Y = [25, 5, 7, 14, 14, 17, 19, 20]
 w0 = 0.25
 w1 = 0.25
 learning_rate = 0.001
-max_iter = 10000000
+max_iteration = 10000000
 tolerance = 1e-10
 
 
@@ -20,7 +20,7 @@ def batch_gradient_descent(X, Y, w0, w1):
     n = len(X)
     iterations = 0
 
-    for _ in range(max_iter):
+    for _ in range(max_iteration):
         # sum up the gradients across all points
         grad_w0 = 0
         grad_w1 = 0
@@ -56,7 +56,7 @@ def stochastic_gradient_descent(X, Y, w0, w1):
     n = len(X)
     iterations = 0
 
-    for _ in range(max_iter):
+    for _ in range(max_iteration):
         # save weights from start of this pass to check convergence later
         prev_w0 = w0
         prev_w1 = w1
